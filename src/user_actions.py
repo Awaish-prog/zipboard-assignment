@@ -1,6 +1,9 @@
+import time
+
 from selenium.webdriver.remote.webelement import WebElement
 from page_models.login_page import LoginPage
 from page_models.explorer_page import ExplorerPage
+from page_models.project_page import ProjectPage
 from selenium.webdriver.support import expected_conditions as EC
 from setup import SetUp
 
@@ -21,3 +24,10 @@ class UserActions:
         login_page.enter_email("awaishkhan79@gmail.com", setup.get_wait())
         login_page.enter_password("ZipboardPassword@12", setup.get_wait())
         login_page.click_login(setup.get_wait())
+
+    def navigate_to_document(self, setup: SetUp, project_title, file_id):
+        projectPage: ProjectPage = ProjectPage(project_title)
+        projectPage.open_project(setup.get_wait())
+        projectPage.show_document_pop_up(setup.get_wait(), file_id)
+        projectPage.click_review(setup.get_wait())
+

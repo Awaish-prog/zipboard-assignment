@@ -8,8 +8,12 @@ class TestAnnotationsMarkUps:
     setup = SetUp()
 
     def test_annotations(self):
-        UserActions().login(self.setup)
+        user_actions = UserActions()
+        user_actions.login(self.setup)
+        user_actions.navigate_to_document(self.setup, "Zipboard-assignment", "js_filename_TwpKGFqNGJydCEe52")
+
 
     def test_markups(self):
-        UserActions().login(self.setup)
+        user_actions = UserActions()
+        user_actions.login(self.setup)
 
