@@ -18,3 +18,6 @@ class LoginPage:
 
     def click_login(self, wait: WebDriverWait):
         wait.until(EC.element_to_be_clickable(self.login_button)).click()
+
+    def get_email_locator(self):
+        return self.email_input
