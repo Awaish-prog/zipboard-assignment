@@ -9,6 +9,7 @@ class SetUp:
     def __init__(self):
         self._driver = webdriver.Chrome()
         self._wait = WebDriverWait(self._driver, 30)
+        self._driver.maximize_window()
 
     def get_driver(self) -> webdriver.Chrome:
         return self._driver

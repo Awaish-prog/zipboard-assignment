@@ -132,11 +132,14 @@ class DocumentPage:
         return True
 
     def delete_note(self, driver: webdriver.Chrome, wait: WebDriverWait) -> None:
-        self.switch_to_iframe(driver, wait)
-        self.click_saved_note(wait)
-        self.click_note_popup(wait)
-        self.click_note_popup_delete(wait)
-        self.switch_to_last_tab(driver)
+        try:
+            self.switch_to_iframe(driver, wait)
+            self.click_saved_note(wait)
+            self.click_note_popup(wait)
+            self.click_note_popup_delete(wait)
+            self.switch_to_last_tab(driver)
+        except:
+            pass
 
     def add_line_to_document(self, driver: webdriver.Chrome, wait: WebDriverWait) -> bool:
         try:
@@ -153,8 +156,11 @@ class DocumentPage:
         return True
 
     def delete_line(self, driver: webdriver.Chrome, wait: WebDriverWait) -> None:
-        self.switch_to_iframe(driver, wait)
-        self.click_saved_note(wait)
-        self.click_cancel_button(wait)
-        self.click_note_popup(wait)
-        self.click_note_popup_delete(wait)
+        try:
+            self.switch_to_iframe(driver, wait)
+            self.click_saved_note(wait)
+            self.click_cancel_button(wait)
+            self.click_note_popup(wait)
+            self.click_note_popup_delete(wait)
+        except:
+            pass
