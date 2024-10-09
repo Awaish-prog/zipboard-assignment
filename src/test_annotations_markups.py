@@ -1,3 +1,4 @@
+import logging
 from setup import SetUp
 from user_actions import UserActions
 from page_models.document_page import DocumentPage
@@ -12,6 +13,7 @@ class TestAnnotationsMarkUps:
         user_actions.navigate_to_document(self.setup, "Zipboard-assignment", "js_filename_nLWTDCyRbHHTr9EvC")
         document: DocumentPage = DocumentPage()
         assert document.add_note_to_document(self.setup.get_driver(), self.setup.get_wait(), "note"), "Failed to add Note to the PDF"
+        logging.info("Added note to the PDF")
         document.delete_note(self.setup.get_driver(), self.setup.get_wait())
 
     def test_markups(self) -> None:
@@ -20,4 +22,5 @@ class TestAnnotationsMarkUps:
         user_actions.navigate_to_document(self.setup, "Zipboard-assignment", "js_filename_nLWTDCyRbHHTr9EvC")
         document: DocumentPage = DocumentPage()
         assert document.add_line_to_document(self.setup.get_driver(), self.setup.get_wait()), "Failed to add line to the PDF"
+        logging.info("Added line to the PDF")
         document.delete_line(self.setup.get_driver(), self.setup.get_wait())
