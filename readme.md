@@ -1,4 +1,25 @@
-# Zipboard Tests Setup
+# Zipboard Tests
+
+## Framework used: Selenium
+
+### Reasons
+
+- **Cross-browser Compatibility**: Supports a wide range of browsers, making it ideal for comprehensive testing.
+- **Mature and Reliable**: A well-established tool with extensive community support, plugins, and documentation for resolving issues.
+- **Scalability**: Selenium Grid enables parallel testing across multiple environments, improving test efficiency.
+
+## Design Pattern used: Page Object Model (POM) pattern
+
+### Reasons
+
+- Enhanced Code Reusability.
+- Improved Readability.
+- Easier Maintenance.
+- Scalability.
+- Reduced Duplication.
+- Better Abstraction.
+
+## Tests Setup
 
 - Download [Python](https://www.python.org/downloads/) for your operating system.
 - Clone the repository from GitHub:
