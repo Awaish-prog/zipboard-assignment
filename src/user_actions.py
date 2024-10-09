@@ -4,6 +4,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from page_models.login_page import LoginPage
 from page_models.explorer_page import ExplorerPage
 from page_models.project_page import ProjectPage
+from page_models.document_page import DocumentPage
 from selenium.webdriver.support import expected_conditions as EC
 from setup import SetUp
 
@@ -30,4 +31,6 @@ class UserActions:
         projectPage.open_project(setup.get_wait())
         projectPage.show_document_pop_up(setup.get_wait(), file_id)
         projectPage.click_review(setup.get_wait())
-
+        setup.get_wait().until(EC.number_of_windows_to_be(2))
+        setup.switch_to_window(1)
+        setup.get_wait().until(EC.url_contains(DocumentPage().get_base_url()))

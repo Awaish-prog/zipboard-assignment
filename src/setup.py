@@ -18,3 +18,7 @@ class SetUp:
 
     def quit_driver(self):
         self._driver.quit()
+
+    def switch_to_window(self, window_index: int):
+        window_handle: str = self.get_driver().window_handles[window_index]
+        self.get_driver().switch_to.window(window_handle)
