@@ -54,7 +54,7 @@ pip install -r requirements.txt
 
 - Run below command to start tests for login page(recommended to test a particular section in the testnet):
 ```commandline
-pytest --log-cli-level=INFO test_annotations_markups.py
+pytest --log-cli-level=INFO src/test_annotations_markups.py
 ```
 
 - Deactivate virtual environment:
