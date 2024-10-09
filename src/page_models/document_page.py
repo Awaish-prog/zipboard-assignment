@@ -117,14 +117,19 @@ class DocumentPage:
         action.move_to_element_with_offset(canvas, 50, 50).click_and_hold()
         action.move_by_offset(150, 50).release().perform()
 
-    def add_note_to_document(self, driver: webdriver.Chrome, wait: WebDriverWait, note: str) -> None:
-        self.switch_to_iframe(driver, wait)
-        self.click_annotate(wait)
-        self.click_note(wait)
-        self.click_page_container(wait)
-        self.add_note_text(driver, wait, note)
-        self.click_save(wait)
+    def add_note_to_document(self, driver: webdriver.Chrome, wait: WebDriverWait, note: str) -> bool:
+        try:
+            self.switch_to_iframe(driver, wait)
+            self.click_annotate(wait)
+            self.click_note(wait)
+            self.click_page_container(wait)
+            self.add_note_text(driver, wait, note)
+            self.click_save(wait)
+        except:
+            driver.refresh()
+            return False
         driver.refresh()
+        return True
 
     def delete_note(self, driver: webdriver.Chrome, wait: WebDriverWait) -> None:
         self.switch_to_iframe(driver, wait)
@@ -133,14 +138,19 @@ class DocumentPage:
         self.click_note_popup_delete(wait)
         self.switch_to_last_tab(driver)
 
-    def add_line_to_document(self, driver: webdriver.Chrome, wait: WebDriverWait) -> None:
-        self.switch_to_iframe(driver, wait)
-        self.click_shapes(wait)
-        self.click_line(wait)
-        self.draw_line_on_canvas(driver, wait)
-        self.click_page_container(wait)
+    def add_line_to_document(self, driver: webdriver.Chrome, wait: WebDriverWait) -> bool:
+        try:
+            self.switch_to_iframe(driver, wait)
+            self.click_shapes(wait)
+            self.click_line(wait)
+            self.draw_line_on_canvas(driver, wait)
+            self.click_page_container(wait)
+        except:
+            driver.refresh()
+            return False
         time.sleep(3)
         driver.refresh()
+        return True
 
     def delete_line(self, driver: webdriver.Chrome, wait: WebDriverWait) -> None:
         self.switch_to_iframe(driver, wait)
