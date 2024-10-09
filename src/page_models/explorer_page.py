@@ -1,12 +1,10 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 
 class ExplorerPage:
 
     def __init__(self):
-        self.create_project = (By.ID, '//button[span[text()="Create Project"]]')
+        self.create_project: tuple[str, str] = (By.ID, '//button[span[text()="Create Project"]]')
 
-    def get_create_project(self):
+    def get_create_project(self) -> tuple[str, str]:
         return self.create_project

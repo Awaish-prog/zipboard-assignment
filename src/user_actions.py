@@ -1,4 +1,3 @@
-import time
 
 from selenium.webdriver.remote.webelement import WebElement
 from page_models.login_page import LoginPage
@@ -11,7 +10,7 @@ from setup import SetUp
 
 class UserActions:
 
-    def login(self, setup: SetUp):
+    def login(self, setup: SetUp) -> None:
         if DocumentPage().get_base_url() in setup.get_driver().current_url:
             return
         setup.get_driver().get(LoginPage().get_base_url())
@@ -23,12 +22,12 @@ class UserActions:
         )
         if found_element.get_attribute("type") == "button":
             return
-        login_page = LoginPage()
+        login_page: LoginPage = LoginPage()
         login_page.enter_email("awaishkhan79@gmail.com", setup.get_wait())
         login_page.enter_password("ZipboardPassword@12", setup.get_wait())
         login_page.click_login(setup.get_wait())
 
-    def navigate_to_document(self, setup: SetUp, project_title, file_id):
+    def navigate_to_document(self, setup: SetUp, project_title, file_id) -> None:
         if DocumentPage().get_base_url() in setup.get_driver().current_url:
             return
         setup.get_driver().get(LoginPage().get_base_url())
