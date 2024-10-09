@@ -16,6 +16,7 @@ class TestAnnotationsMarkUps:
         user_actions.navigate_to_document(self.setup, "Zipboard-assignment", "js_filename_TwpKGFqNGJydCEe52")
         document = DocumentPage()
         document.add_note_to_document(self.setup.get_driver(), self.setup.get_wait(), "note")
+        document.delete_note(self.setup.get_driver(), self.setup.get_wait())
 
     def test_markups(self):
         user_actions = UserActions()
